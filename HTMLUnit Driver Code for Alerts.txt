@@ -1,0 +1,14 @@
+	WebDriver driver = new HtmlUnitDriver(capabilities) {
+			    private String USERNAME = "16929qa0022";
+			    private String PASSWORD = "Equifax@01";
+			    
+			    @Override
+			    protected WebClient newWebClient(BrowserVersion browserVersion) {       
+			        System.out.println("Logging in with: [username:" + USERNAME + "]");
+			        WebClient client = super.newWebClient(browserVersion);
+			        DefaultCredentialsProvider provider = new DefaultCredentialsProvider();
+			        provider.addCredentials(USERNAME, PASSWORD);
+			        client.setCredentialsProvider(provider);
+			        return client;
+			    }					
+			};

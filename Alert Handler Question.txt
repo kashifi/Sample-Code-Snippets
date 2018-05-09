@@ -1,0 +1,55 @@
+
+Alert Handler
++++++++++++++
+
+******************** QUESTION
+
+I am not sure whether selenium webdriver can handle Javascript alert/pop-up window.
+
+I have a scenario like
+1. User uploads a xls file and click on upload button
+2. Alert/Pop-up window will be displayed . Click "OK" on window
+
+Am able to automate the above scenario but the Alert/pop-up window is displayed while running the scripts.
+
+Is their anyway workaround that we can handle javascript alert/pop-up window?
+
+__________________________________________________________________________________
+
+You can also try waiting for the alert to appear and then accepting it.
+
+Below is the code for that (after the upload button is clicked):
+
+try{
+   //Wait 10 seconds till alert is present
+   WebDriverWait wait = new WebDriverWait(driver, 10);
+   Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+   //Accepting alert.
+   alert.accept();
+   System.out.println("Accepted the alert successfully.");
+}catch(Throwable e){
+   System.err.println("Error came while waiting for the alert popup. "+e.getMessage());
+
+********************************************************************************************************
+********************************************************************************************************
+
+
+Switch to default content Dismiss alert after accepting "OK" Otherwise your alert is from a different window which you'll have to switch to in order to dismiss
+
+driver.switchTo().alert().accept();    
+driver.switchTo().alert().dismiss();  
+driver.switchTo().alert().defaultConent();  
+
+********************************************************************************************************
+********************************************************************************************************
+
+
+
+
+Mock it out. Call javascript behind the UI directly:
+
+WebDriver driver = new AnyDriverYouWant();
+if (driver instanceof JavascriptExecutor) {
+    ((JavascriptExecutor)driver).executeScript("yourScript();");
+}

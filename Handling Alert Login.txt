@@ -1,0 +1,43 @@
+
+
+Before handling any pop up you have to find that, whether it is iFrame/Modal dialog box etc. If it's iframe try to switch over that with locating elements of that iframe.
+
+In your scenario-take a example of twitter Login application:
+
+After click on Login button: It displays Pop up which is called as Modal dialog box.
+
+If you want to confirm for this- Right click on pop up it gives an ID with name as- Modaldialogbox for handling Modal dialogbox, Simply you have to add WAIT before locating elements on that pop up.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+##############################################################################################
+
+public class TwitterLogin 
+{
+
+    static WebDriver driver;
+    static String baseUrl="https://twitter.com/";
+
+    public static void main(String[] args) throws InterruptedException 
+    {
+        driver= new FirefoxDriver();
+        driver.get(baseUrl);
+        driver.manage().window().maximize();
+
+        WebElement LoginButton= driver.findElement(By.xpath("//button[@class='Button StreamsLogin js-login']"));
+        LoginButton.click();
+
+        Thread.sleep(10000);
+        WebElement UsernameTextbox=    driver.findElement(By.xpath("//input[contains(@name,'email]')]"));
+        UsernameTextbox.clear();
+        UsernameTextbox.sendKeys("abcd");
+
+        WebElement PasswdTextbox=driver.findElement(By.xpath("//input[contains(@type,'password')]"));
+        PasswdTextbox.clear();
+        PasswdTextbox.sendKeys("1234");
+
+        PasswdTextbox.submit();     
+    }
+
+
+}

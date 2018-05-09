@@ -1,0 +1,35 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+ 
+public class MainPage {
+ 
+  private final WebDriver driver;
+  private final By doneStatusLocator = By.id("done");
+  private final By displayPopupLocator = By.id("displayPopup");
+ 
+  public MainPage(WebDriver driver) {
+    this.driver = driver;
+  }
+ 
+  public void open() throws InterruptedException {
+    driver.get("file:///C:/Users/home/Desktop/modal.html");
+ 
+    if (driver.getTitle().contains("Test Random Popup") == false)
+        throw new NotFoundException("main page not displayed");
+  }
+ 
+  public String done() {
+    WebElement doneLabel = driver.findElement(doneStatusLocator);
+    return doneLabel.getText();
+  }
+ 
+  public Popup displayPopup() {
+    WebElement displayPopupButton = driver.findElement(displayPopupLocator);
+    displayPopupButton.click();
+ 
+    return new Popup(driver);
+  }
+ 
+}

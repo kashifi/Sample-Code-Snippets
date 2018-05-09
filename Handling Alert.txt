@@ -1,0 +1,13 @@
+
+
+//WAIT UNTIL ALERT OPENS AND THEN CLICK ON OK/ACCEPT
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept(); //ACCEPT ACTION
+
+            //WAIT UNTIL ALERT OPENS AND THEN CLICK ON CANCEL/REJECT
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.dismiss(); //REJECT ACTION

@@ -1,0 +1,20 @@
+
+Selenium Helping Material 
+
+https://huddle.eurostarsoftwaretesting.com/selenium-interact-modal-windows/
+
+
+https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing
+
+
+https://www.blazemeter.com/blog/how-automate-testing-using-selenium-webdriver-jenkins-and-allure
+
+
+https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Your_own_automation_environment
+
+
+https://www.edureka.co/blog/what-is-selenium/
+
+
+
+http://www.softwaretestinghelp.com/handle-alerts-popups-selenium-webdriver-selenium-tutorial-16/
